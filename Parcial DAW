@@ -1,0 +1,331 @@
+PASOS
+
+1. CREAR EL PROYECTO
+
+
+Scaffold-DBContext "Server=ACERNITRO5;Database=StoreDB;integrated security=true;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Data -Force -nopluralize
+
+
+
+
+Install-Package Microsoft.EntityFrameworkCore
+Install-Package Microsoft.EntityFrameworkCore.SqlServer
+Install-Package Microsoft.EntityFrameworkCore.Tools
+
+
+Scaffold-DBContext "Server=ACERNITRO5;Database=StoreDB;integrated security=true;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Infrastructure/Data -Force -nopluralize
+
+
+"Server=ACERNITRO5;Database=StoreDB;integrated security=true;TrustServerCertificate=True"
+
+
+
+EJERCICIO 1
+
+WEB API + Scaffold Controller
+
+
+1. crear proyecto
+
+ASP.NET CORE WEB API (icono llave)
+
+2. instalar los paquetes
+
+Install-Package Microsoft.EntityFrameworkCore
+Install-Package Microsoft.EntityFrameworkCore.SqlServer
+Install-Package Microsoft.EntityFrameworkCore.Tools
+
+3. scaffold de la base de datos
+
+Scaffold-DBContext "Server=ACERNITRO5;Database=StoreDB;integrated security=true;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Models -Force -nopluralize
+
+4. configurar appsetting.json
+Agregar las credenciales de base de datos en el archivo appsettings.json.
+
+  "ConnectionStrings": {
+    "DevConnection": "Server=ACERNITRO5;Database=StoreDB;integrated security=true;TrustServerCertificate=True"
+  }
+
+5. registrar el proyecto y la conexion en el program.cs
+
+
+// Add services to the container.
+
+var _config = builder.Configuration;
+var _cnx = _config.GetConnectionString("DevConnection");
+builder
+    .Services
+    .AddDbContext<StoreDbContext>(options =>
+    {
+        options.UseSqlServer(_cnx);
+    });
+
+
+6 agregar nuevo controlador
+ - ubicarse en controllers
+ - agregar - nuevo elemento con scaffold
+ - API - controlador de API con acciones que usan Entity Framework
+seleccionar la entidad a la que se va hacer el scaffold
+seleccionar el dbcontext
+nombre de la entidadController
+AGREGAR
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+PARA CAMBIAR EL EDITOR
+
+git config
+
+
+-----------------------------------------------------------
+
+1. CREAR NUEVO PROYECTO
+
+2. AGREGAR BIBLIOTECA EN LA SOLUCION DEL PROYECTO
+ - solion del proyecto / agregar /nuevo proyecto
+- biblioteca de clases (icono c#)
+-siguiente
+- Repaso2WebEFCore.DOMAIN -->nombre
+- sigueinte - .met7 - crear
+
+
+
+
+
+
+
+
+
+3. Opcional - AGREGAR PROYECTO DE BASE DE DATOS DE SQL SERVER
+
+4. Crear Estructura de carpetas del proyecto
+	- en la biblioteca de clases Repaso2WebEFCore.DOMAIN creado 
+	- la siguiente estructura de carpetas
+
+	Core
+	- DTO
+	- Entities
+	- Interfaces
+	- Servicies
+	- Settings
+	Infrastructure
+	- Data
+	- Repositories
+
+
+5. Instalar las dependencias en la BIBLIOTECA DE CLASES. Repaso2WebEFCore.DOMAIN
+
+Install-Package Microsoft.EntityFrameworkCore
+Install-Package Microsoft.EntityFrameworkCore.SqlServer
+Install-Package Microsoft.EntityFrameworkCore.Tools
+
+
+6. Hacer Scaffold de la base de datos.
+ - poner como proyecto de inicio el .domain
+
+
+Scaffold-DBContext "Server=ACERNITRO5;Database=StoreDB;integrated security=true;TrustServerCertificate=True" Microsoft.EntityFrameworkCore.SqlServer -OutputDir Infrastructure/Data -Force -nopluralize
+
+
+
+7. Mover las entidades de la base de datos a la carpeta ENTITIES excepto StoreDBContex.cs
+
+8. Agregar las credenciales de base de datos en el archivo appsettings.json.
+
+  "ConnectionStrings": {
+    "DevConnection": "Server=ACERNITRO5;Database=StoreDB;integrated security=true;TrustServerCertificate=True"
+  }
+
+
+
+9. Agregar el codigo al archivo Programs.cs.
+
+// Add services to the container.
+
+var _config = builder.Configuration;
+var _cnx = _config.GetConnectionString("DevConnection");
+builder
+    .Services
+    .AddDbContext<StoreDbContext>(options =>
+    {
+        options.UseSqlServer(_cnx);
+    });
+
+
+- Hacer Usin para mapear las rutas, eliminar otro Store Db Contex en caso lo haya.
+
+
+10 Crear los repositorios para la entidad a trabajar en repositories
+- en repositories / agregar / clase
+- crear con el nombre de la entidad a trabajar UserRepository
+
+
+11. crear los endpoints en este repositorio (GET; POST; PUT; DELETE)
+
+
+public class UserRepository
+{
+    private readonly StoreDbContext _context;
+
+    public UserRepository(StoreDbContext context)
+    {
+        _context = context;
+    }
+    public async Task<IEnumerable<User>> GetUsers() 
+    {
+        var users = await _context.User.ToListAsync();
+        return users;
+    
+    }
+
+
+
+    public async Task<User> GetUser(int id)
+    {
+        //return _context.User.Find(id);
+
+        return await _context.User.Where(x => x.Id == id).FirstOrDefaultAsync();
+    
+    }
+
+    public async Task<bool> Insert(User user)
+    {
+        await _context.User.AddAsync(user);
+        var countRows = await _context.SaveChangesAsync();
+        return (countRows > 0);
+    }
+
+    public async Task<bool> Update (User user)
+    {
+        _context.User.Update(user);
+        var countRows = await _context.SaveChangesAsync();
+        return (countRows > 0);
+    }
+
+    public async Task<bool> Delete(int id)
+    {
+        var user = await _context.User.FindAsync(id);
+        return (user != null);
+    }
+
+
+
+}
+
+
+
+12 ubicarse en 
+
+public class UserRepository ---> clik derecho y acciones rapidas y refactorizaciones / extraer interfaz
+
+ - revisar que esten seleccionados las intersaces a crear
+ - aceptar
+
+12 mover la interfaz creada a la carpeta INTERFACES
+
+13 establecer como proyecto de inicio a la api
+	(en caso lo requiera referenciar el proyecto damain al api)
+
+
+14 crear controladores
+
+ - clik derecho en controller del api / agregar / controlador
+
+ - API / controlador de API en blanco
+ - poner nombre UserController.cs y aceptar
+
+15 en el usercontroller.cs se deben agregar las clases para mostrar en interfaz los repositorios trabajados
+
+
+public class UserController : ControllerBase
+{
+
+    private readonly IUserRepository _userRepository;
+
+    public UserController(IUserRepository userRepository)
+    {
+        _userRepository = userRepository;
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> GetAll()
+    {
+        var users = await _userRepository.GetUsers();
+        return Ok(users);
+    }
+
+    [HttpGet("{id}")]
+    public async Task<IActionResult> GetUserById(int id)
+    {
+        var user = await _userRepository.GetUser(id);
+        return Ok(user);
+    }
+
+    [HttpPost]
+
+    public async Task<IActionResult> Insert([FromBody] User user)
+    {
+        var result = await _userRepository.Insert(user);
+        return Ok(result);
+    }
+
+    [HttpPut]
+    public async Task<IActionResult> Update(int id, [FromBody] User user)
+    {
+        if (id != user.Id)
+            return BadRequest();
+
+        var result = await _userRepository.Update(user);
+        return Ok(result);
+    }
+
+    [HttpDelete("{id}")]
+
+    public async Task<IActionResult> Delete(int id)
+    {
+        var result = await _userRepository.Delete(id);
+        return Ok(result);
+    }
+
+
+}
+
+
+
+
+
+
+16. agregar en el archivo program.cs  las interfaces creadas por cada entidad, por ejemplo
+-- insertar debajo del codigo insertado anteriormente de la conexion
+
+builder .Services.AddTransient<IUserRepository, UserRepository>();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
