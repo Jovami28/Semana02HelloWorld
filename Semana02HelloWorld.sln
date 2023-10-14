@@ -194,6 +194,11 @@ todo menos el DbContext.cs ese se queda en DATA terminado ello
 en la solución seleccionamos Recompilar solución
 10- crear en controllers  agregar / nuevo elemento con scaffold / seleccionar API / Controlador API con acciones que usan entity framework /
 seleccionar el modelo al que le vas agregar el controlador / 
+11- en DBcontext  en optionbuilder usesqlserver ( copiar la conexión que se usa en el scafold)
+12- en el appsettings se coloca el devconeccion
+13 - para crear los controladores se crea en la carpeta de controllers / Agregar / controlador / API / controlador API en blanco / C# / controlado API en blanco / 
+14 - en programa.cs se agrega la linea de builder.service.addTrasient
+
 
 
 
