@@ -1,3 +1,89 @@
+	API
+	Application Programming Interface
+	Es un conjunto de productos y servicios tecnológicos que permiten comunicarse a través de internet.
+	Permite integrar diferentes aplicaciones web, móviles ,automatizar procesos de negocios, extraer datos de diferentes sistemas o construir integraciones entre diferentes aplicaciones sin importar el lenguaje de programación utilizado.
+	REST
+	Representational State Transfer
+	Es un estilo arquitectónico utilizado en el desarrollo de aplicaciones web que se comunican a través de internet.
+	Promueve la interoperabilidad y escalabilidad de las aplicaciones web sin conocer detalles internos de cada uno. La interoperabilidad permite la comunicación entre sistema a través de objeto sin importar el lenguaje de programación
+	REST API. 
+	Se refiere a la restricciones y principios del diseño arquitectónico REST.
+Utiliza los verbos HTTP REQUEST METHODS: (GET, POST, PUT, DELETE) (READ, CREATE, UPDATE, DELETE) para realizar operaciones en recursos como URLs y devuelven respuestas en formato json o xml.
+	HTTP HEADERS:
+	User-Agent : identifica el tipo de agente de usuario (navegador web, robot web, etc.) que está haciendo la solicitud.
+Accept: indica los tipos de contenido que el cliente está dispuesto a aceptar. Por ejemplo, text html " para contenido HTML o application json " para contenido
+Authorization: proporciona credenciales de autenticación para acceder a recursos protegidos en el servidor.
+Cookie: incluye una o más cookies almacenadas previamente en el cliente, que se utilizarán para realizar un seguimiento de la sesión.
+Content Type: indica el tipo de contenido de la solicitud. Por ejemplo, "application/json " para datos en formato JSON.
+HTTP STATUS CODE:
+1xx (Respuestas informativas) Indica que la solicitud se ha recibido y se está procesando
+2xx (Respuestas satisfactorias) Indica que la solicitud se ha procesado correctamente y se ha completado con éxito
+3xx (Redirecciones) Indica que el cliente debe realizar más acciones para completar la solicitud
+4xx (Errores del cliente) Indica que la solicitud del cliente no se pudo procesar debido a un error en la solicitud
+5xx (Errores del servidor) Indica que la solicitud del cliente no se pudo procesar debido a un error en el servidor
+HTTP STATUS CODE MAS COMUNES:
+200 OK la solicitud se ha procesado correctamente y se ha completado con éxito
+201 Created la solicitud se ha procesado correctamente y se ha creado un nuevo recurso
+400 Bad Request la solicitud del cliente no se pudo procesar debido a un error en la solicitud
+401 Unauthorized la solicitud del cliente no se pudo procesar porque el cliente no está autorizado a acceder al recurso
+403 Forbidden la solicitud del cliente no se pudo procesar porque el servidor se niega a permitir el acceso al recurso
+404 Not Found la solicitud del cliente no se pudo procesar porque el servidor no pudo encontrar el recurso solicitado
+500 Internal Server Error la solicitud del cliente no se pudo procesar debido a un error en el servidor
+HTTP ACCESS CONTROL:
+Es un mecanismo que permite a los servidores web controlar el acceso a sus recursos por parte de los clientes a través de solicitudes HTTP
+Proporciona seguridad y protección contra el acceso no autorizado a recursos protegidos
+CROSS-ORIGIN RESOURCE SHARING (CORS):
+Permite a los servidores web indicar a los navegadores web si se permite que una solicitud de recursos se realice desde un origen diferente al del recurso solicitado
+OBJECT RELATIONAL MAPPING:
+Es un mecanismo que permite abordar, acceder y manipular objetos (Mapeo) sin tener que considerar cómo los objetos se relacionan con sus fuentes de datos.
+Permite crear una base de datos orientada a objetos “virtual” (Persistencia), sobre una base de datos relacional.
+Se considera una capa intermedia entre la base de datos y los objetos de la base de datos.
+PILARES DE LA POO:
+Abstracción, Encapsulamiento, Herencia, Polimorfismo
+PRINCIPIOS SOLID:
+S: Single responsibility principle o Principio de responsabilidad única Keyword Decoupled
+O: Open/ closed principle o Principio de abierto/cerrado Keyword Abstraction
+L: Liskov substitution principle o Principio de sustitución de Liskov Keyword Replaceable
+I: Interface segregation principle o Principio de segregación de la interfaz Keyword Segregate Interfaces
+D: Dependency inversion principle o Principio de inversión de dependencia Keyword Dependency
+PATRONES DE DISEÑO:
+Los patrones de diseño son soluciones habituales a problemas que ocurren con frecuencia en el diseño de software. Son como planos prefabricados que se pueden personalizar para resolver un problema de diseño recurrente en tu código.
+¿EN QUE CONSISTE EL PATRON?
+El propósito del patrón explica brevemente el problema y la solución
+La motivación explica en más detalle el problema y la solución que brinda el patrón
+La estructura de las clases muestra cada una de las partes del patrón y el modo en que se relacionan
+ENTITY FRAMEWORK CORE
+Es una versión ligera de código abierto y multiplataforma de la popular tecnología Entity Framework.
+Sirve como mapeador relacional de objetos (ORM)
+Admite muchos motores de bases de datos.
+Se accese mediante Modelos y para las consultas se utiliza LINQ
+Permite hacer CRUD a las tablas de la base de datos.
+
+==================================================================================================================================================
+
+•¿Qué NO es .NET? – Un sistema operativo. – Un lenguaje de programación. – Un entorno de desarrollo(IDE’s)
+• ¿Qué SI es .NET? – Un entorno de ejecución administrado. – Un conjunto de lenguajes de programación. – Un conjunto de bibliotecas y clases reutilizables.
+“.NET es un estándar de ECMA que tiene distintas implementaciones: .NET Framework, Mono, Unity y, ahora, .NET Core.”
+.NET Framework & .NET Core --  • .NET Framework: Es un framework para desarrollar aplicaciones para Windows (desktop, mobile, services), Nivel del madurez: Alta. --- • .NET Core: Entorno de ejecución CrossPlatform. Nivel del madurez: media-alta.
+API • Application Programming Interface – Es un conjunto de productos y servicios tecnológicos que permiten comunicarse a través de internet. – Es un conjunto de reglas, protocolos y herramientas para construir aplicaciones de software. – Permite integrar diferentes aplicaciones web, móviles, automatizar procesos de negocios, extraer datos de diferentes sistemas o construir integraciones entre diferentes aplicaciones sin importar el lenguaje de programación utilizado.
+REST • Representational State Transfer – Es un estilo arquitectónico utilizado en el desarrollo de aplicaciones web que se comunican a través de internet. – Se basa en el protocolo HTTP y utiliza verbos como: GET, POST, PUT y DELETE. – Los recursos se identifican mediante una URL y se pueden acceder a través de HTTP. – Las respuestas suelen ser en formato JSON o XML. – Promueve la interoperabilidad y escalabilidad de las aplicaciones web sin conocer detalles internos de cada uno
+REST API • Se refiere a una API que se adhiere a las restricciones y principios del diseño arquitectónico REST. • Utiliza los verbos HTTP (GET, POST, PUT, DELETE) para realizar operaciones en los recursos identificados por URLs y devuelve las respuestas en formato JSON o XML.
+HTTP Headers • Son campos adicionales que se envían junto con una solicitud o respuesta HTTP. • Se dividen en dos categorías principales: – Request headers – Response headers
+HTTP Headers • User -Agent : identifica el tipo de agente de usuario (navegador web, robot web, etc.) que está haciendo la solicitud. • Accept: indica los tipos de contenido que el cliente está dispuesto a aceptar. Por ejemplo, "text/html" para contenido HTML o "application/json" para contenido JSON. • Authorization: proporciona credenciales de autenticación para acceder a recursos protegidos en el servidor. • Cookie: incluye una o más cookies almacenadas previamente en el cliente, que se utilizarán para realizar un seguimiento de la sesión. • Content -Type: indica el tipo de contenido de la solicitud. Por ejemplo, "application /json" para datos en formato JSON.
+HTTP Request Methods • GET: solicita una representación del recurso identificado por la URL. El servidor devuelve el contenido del recurso en la respuesta. • POST: envía datos al servidor para crear un nuevo recurso. El contenido de la solicitud se incluye en el cuerpo de la solicitud y el servidor devuelve una respuesta que puede incluir información sobre el recurso recién creado. • PUT: actualiza o reemplaza completamente un recurso identificado por la URL. El contenido de la solicitud se incluye en el cuerpo de la solicitud y el servidor devuelve una respuesta que puede incluir información sobre el recurso actualizado. • DELETE: elimina el recurso identificado por la URL. El servidor devuelve una respuesta que puede incluir información sobre la eliminación del recurso. • HEAD: solicita información sobre el recurso identificado por la URL, pero no solicita su contenido. El servidor devuelve una respuesta que incluye los headers de la respuesta, pero sin el contenido del recurso. • OPTIONS: solicita información sobre los métodos de solicitud HTTP permitidos en la URL. El servidor devuelve una respuesta que incluye los métodos permitidos y otros headers de información. • PATCH: actualiza parcialmente el recurso identificado por la URL. El contenido de la solicitud se incluye en el cuerpo de la solicitud y el servidor devuelve una respuesta que puede incluir información sobre el recurso actualizado.
+
+HTTP Status Code 14 Con cada solicitud realizada al servidor, se obtiene códigos de respuesta o estado • Los códigos de estado se dividen en 5 principales categorías: – 1xx (Respuestas informativas): Indica que la solicitud se ha recibido y se está procesando. – 2xx (Respuestas satisfactorias): Indica que la solicitud se ha procesado correctamente y se ha completado con éxito. – 3xx (Redirecciones): Indica que el cliente debe realizar más acciones para completar la solicitud. – 4xx (Errores del cliente): Indica que la solicitud del cliente no se pudo procesar debido a un error en la solicitud. – 5xx (Errores del servidor): Indica que la solicitud del cliente no se pudo procesar debido a un error en el servidor.
+HTTP Status Code • Algunos códigos de estado HTTP más comunes: – 200 OK: la solicitud se ha procesado correctamente y se ha completado con éxito. – 201 Created: la solicitud se ha procesado correctamente y se ha creado un nuevo recurso. – 400 Bad Request: la solicitud del cliente no se pudo procesar debido a un error en la solicitud. – 401 Unauthorized: la solicitud del cliente no se pudo procesar porque el cliente no está autorizado a acceder al recurso. – 403 Forbidden: la solicitud del cliente no se pudo procesar porque el servidor se niega a permitir el acceso al recurso. – 404 Not Found: la solicitud del cliente no se pudo procesar porque el servidor no pudo encontrar el recurso solicitado. – 500 Internal Server Error: la solicitud del cliente no se pudo procesar debido a un error en el servidor.
+HTTP Access Control - Es un mecanismo que permite a los servidores web controlar el acceso a sus recursos por parte de los clientes a través de solicitudes HTTP. • Proporciona seguridad y protección contra el acceso no autorizado a recursos protegidos.
+Cross-Origin Resource Sharing (CORS) • Permite a los servidores web indicar a los navegadores web si se permite que una solicitud de recursos se realice desde un origen diferente al del recurso solicitado.
+POSTMAN • Es una herramienta de prueba de API que permite a los desarrolladores probar, documentar y compartir las API de sus aplicaciones de una manera fácil y eficiente. • Cuenta con la capacidad de agregar parámetros, cabeceras y cuerpo a las solicitudes HTTP, la opción de enviar solicitudes a diferentes entornos de API.
+Object Relational Mapping  • Es un mecanismo que permite abordar, acceder y manipular objetos (Mapeo) sin tener que considerar cómo los objetos se relacionan con sus fuentes de datos. • Permite crear una base de datos orientada a objetos “virtual” (Persistencia), sobre una base de datos relacional. • Se considera una capa intermedia entre la base de datos y los objetos de la base de datos. • ¿Por qué trabajar con un ORM?: Abstracción de la base de datos, POO, seguridad.
+Principios SOLID • S: Single responsibility principle o Principio de responsabilidad única. Keyword: “Decoupled” • O: Open/closed principle o Principio de abierto/cerrado. Keyword: “Abstraction” • L: Liskov substitution principle o Principio de sustitución de Liskov. Keyword: “Replaceable” • I: Interface segregation principle o Principio de segregación de la interfaz. Keyword: “Segregate Interfaces”. • D: Dependency inversion principle o Principio de inversión de dependencia. Keyword: “Dependency”.
+Patrones de diseño • Los patrones de diseño son soluciones habituales a problemas que ocurren con frecuencia en el diseño de software. Son como planos prefabricados que se pueden personalizar para resolver un problema de diseño recurrente en tu código.
+¿En qué consiste el patrón? •El propósito del patrón explica brevemente el problema y la solución. •La motivación explica en más detalle el problema y la solución que brinda el patrón. •La estructura de las clases muestra cada una de las partes del patrón y el modo en que se relacionan. •El ejemplo de código en uno de los lenguajes de programación populares facilita la asimilación de la idea que se esconde tras el patrón.
+
+==============================================================================================================================================
+
 Paso 1  instalar paquetes
 
 Install-Package Microsoft.EntityFrameworkCore
@@ -77,7 +163,7 @@ en controladores agregamos un controlado  /  en API / controlador API en blanco
      }
  }
 
-Paso 9 todas las interfaces se registran en program
+===============================================================================================================================================
 
 builder
     .Services
@@ -106,7 +192,8 @@ nuget / consola de administrador de paquetes
 9- los C# creados por default en DATA tenemos que moverlos a Entities
 todo menos el DbContext.cs ese se queda en DATA terminado ello 
 en la solución seleccionamos Recompilar solución
-
+10- crear en controllers  agregar / nuevo elemento con scaffold / seleccionar API / Controlador API con acciones que usan entity framework /
+seleccionar el modelo al que le vas agregar el controlador / 
 
 
 
